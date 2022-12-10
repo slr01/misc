@@ -8,6 +8,7 @@ sudo apt install iperf3 -y
 sudo apt install conky -y
 sudo mv /etc/conky/conky.conf /etc/conky/conky.conf.old
 sudo wget -P /etc/conky https://raw.githubusercontent.com/slr01/misc/main/conky.conf
+sudo apt install lightdm-gtk-greeter-settings
 
 ###Remove Libre Office and Thunderbird
 sudo apt remove --purge libreoffice* thunderbird* -y
