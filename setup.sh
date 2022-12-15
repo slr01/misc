@@ -20,6 +20,12 @@ sudo update-initramfs -u
 ###For Use As A Headless Display
 sudo echo '\nvkms' >> /etc/modules-load.d/modules.conf
 
+###Turn off Hibernate/Sleep, Disable Swap And Delete Swap File
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+sudo swapoff -a
+sudo sed -i.bak '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+sudo rm /swapfile
+
 ###Install Log2Ram (and resize Journal use)
 echo "deb [signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian/ bullseye main" | sudo tee /etc/apt/sources.list.d/azlux.list
 sudo wget -O /usr/share/keyrings/azlux-archive-keyring.gpg  https://azlux.fr/repo.gpg
