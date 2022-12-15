@@ -8,11 +8,6 @@ sudo apt install conky -y
 sudo mv /etc/conky/conky.conf /etc/conky/conky.conf.old
 sudo wget -P /etc/conky https://raw.githubusercontent.com/slr01/misc/main/conky.conf
 
-###Remove Libre Office and Thunderbird
-sudo apt remove --purge libreoffice* thunderbird* -y
-sudo apt clean
-sudo apt autoremove
-
 ###Work around for the bug related to the HSUART DMA kernel module on Cherry Trail CPUs
 sudo echo '\nblacklist dw_dmac_core\ninstall dw_dmac /bin/true\ninstall dw_dmac_core /bin/true' >> /etc/modprobe.d/blacklist.conf
 sudo update-initramfs -u
@@ -33,3 +28,8 @@ sudo apt update
 sudo apt install log2ram
 sudo echo '\nSystemMaxUse=20M' >> /etc/systemd/journald.conf
 sudo systemctl restart systemd-journald
+
+###Remove Libre Office and Thunderbird
+sudo apt remove --purge libreoffice* thunderbird*
+sudo apt clean
+sudo apt autoremove
