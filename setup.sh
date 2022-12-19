@@ -30,6 +30,6 @@ sudo echo '\nSystemMaxUse=20M' >> /etc/systemd/journald.conf
 sudo systemctl restart systemd-journald
 
 ###Remove Libre Office and Thunderbird
-sudo apt remove --purge libreoffice* thunderbird*
+sudo apt remove --purge libreoffice* thunderbird* -y
 sudo apt clean
-sudo apt autoremove
+sudo apt autoremove -y
